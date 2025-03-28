@@ -10,8 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GetStartedViewController" customModule="Vocabulary" customModuleProvider="target">
             <connections>
                 <outlet property="getStartedButton" destination="Vt2-eZ-ZhC" id="DhA-bZ-XTh"/>
-                <outlet property="subTitleLabel" destination="NKy-1k-RK7" id="WpR-Kc-2FW"/>
-                <outlet property="titleLabel" destination="sf8-oK-MVt" id="zmv-aq-2nB"/>
+                <outlet property="subTitleLabel" destination="NKy-1k-RK7" id="g9G-Bl-yKO"/>
+                <outlet property="titleLabel" destination="sf8-oK-MVt" id="Fog-hd-YHh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,13 +29,13 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zpf-7G-SV9">
                             <rect key="frame" x="32" y="458" width="329" height="54.666666666666629"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sf8-oK-MVt">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sf8-oK-MVt" customClass="PrimaryLabel" customModule="Vocabulary" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="329" height="20.333333333333332"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKy-1k-RK7">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKy-1k-RK7" customClass="SecondaryLabel" customModule="Vocabulary" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="34.333333333333314" width="329" height="20.333333333333329"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>

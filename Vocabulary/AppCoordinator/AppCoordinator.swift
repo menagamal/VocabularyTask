@@ -17,7 +17,9 @@ class AppCoordinator {
     }
 
     func start() {
-        let getStartedViewControler = GetStartedViewController()
+        let getStartedViewControler = GetStartedViewController {
+            print("Navigate")
+        }
         navigationController.setViewControllers([getStartedViewControler], animated: false)
         navigationController.setNavigationBarHidden(true, animated: false)
         window.rootViewController = navigationController

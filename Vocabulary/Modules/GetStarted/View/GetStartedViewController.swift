@@ -7,14 +7,19 @@
 
 import UIKit
 
+
+typealias VoidClosure = () -> Void
+
 class GetStartedViewController: UIViewController {
 
-    @IBOutlet weak var subTitleLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: SecondaryLabel!
+    @IBOutlet weak var titleLabel: PrimaryLabel!
     @IBOutlet weak var getStartedButton: PrimaryButton!
 
+    private var getStartedActions: VoidClosure?
 
-    init() {
+    init(getStartedActions: @escaping VoidClosure) {
+        self.getStartedActions = getStartedActions
         super.init(nibName: "GetStartedViewController", bundle: nil)
     }
     
@@ -29,19 +34,12 @@ class GetStartedViewController: UIViewController {
 
     func setupLayout() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-
         getStartedButton.configureTitle(title: "Get Started")
-        titleLabel.font = UIFont(name: "Georgia-Bold", size: 24)
-        subTitleLabel.font = UIFont(name: "HelveticaNeue", size: 16)
-        titleLabel.numberOfLines = 0
         titleLabel.text = "Expand your Vocabulary in 1 minute a day"
         subTitleLabel.text = "Learn 10,000+ new words with a new daily habit that takes just 1 minute"
-        subTitleLabel.numberOfLines = 0
     }
 
     @IBAction func getStartedClicked(_ sender: PrimaryButton) {
+        getStartedActions?()
     }
-
-
-
 }
