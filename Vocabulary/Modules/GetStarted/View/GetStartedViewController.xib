@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GetStartedViewController" customModule="Vocabulary" customModuleProvider="target">
+            <connections>
+                <outlet property="getStartedButton" destination="Vt2-eZ-ZhC" id="DhA-bZ-XTh"/>
+                <outlet property="subTitleLabel" destination="NKy-1k-RK7" id="WpR-Kc-2FW"/>
+                <outlet property="titleLabel" destination="sf8-oK-MVt" id="zmv-aq-2nB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if4-5U-Z0k">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhatsApp Image 2025-03-27 at 15.33.06" translatesAutoresizingMaskIntoConstraints="NO" id="zlV-49-fBL">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zpf-7G-SV9">
+                            <rect key="frame" x="32" y="458" width="329" height="54.666666666666629"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sf8-oK-MVt">
+                                    <rect key="frame" x="0.0" y="0.0" width="329" height="20.333333333333332"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKy-1k-RK7">
+                                    <rect key="frame" x="0.0" y="34.333333333333314" width="329" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vt2-eZ-ZhC" customClass="PrimaryButton" customModule="Vocabulary" customModuleProvider="target">
+                            <rect key="frame" x="32" y="764" width="329" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="p0Z-3v-eud"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="getStartedClicked:" destination="-1" eventType="touchUpInside" id="AMb-z7-a1d"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Zpf-7G-SV9" firstAttribute="leading" secondItem="if4-5U-Z0k" secondAttribute="leading" constant="32" id="0ZX-jy-MYx"/>
+                        <constraint firstItem="zlV-49-fBL" firstAttribute="top" secondItem="if4-5U-Z0k" secondAttribute="top" id="CM8-ug-bd1"/>
+                        <constraint firstItem="Vt2-eZ-ZhC" firstAttribute="leading" secondItem="if4-5U-Z0k" secondAttribute="leading" constant="32" id="IFP-Vg-QWw"/>
+                        <constraint firstAttribute="trailing" secondItem="Vt2-eZ-ZhC" secondAttribute="trailing" constant="32" id="Nbc-H2-Q9w"/>
+                        <constraint firstItem="zlV-49-fBL" firstAttribute="leading" secondItem="if4-5U-Z0k" secondAttribute="leading" id="QCd-w2-m3O"/>
+                        <constraint firstItem="Zpf-7G-SV9" firstAttribute="top" secondItem="zlV-49-fBL" secondAttribute="bottom" constant="32" id="S20-wm-hKF"/>
+                        <constraint firstAttribute="trailing" secondItem="zlV-49-fBL" secondAttribute="trailing" id="Vfr-an-MkL"/>
+                        <constraint firstAttribute="trailing" secondItem="Zpf-7G-SV9" secondAttribute="trailing" constant="32" id="aoz-YK-erl"/>
+                        <constraint firstAttribute="bottom" secondItem="Vt2-eZ-ZhC" secondAttribute="bottom" constant="32" id="iYp-8G-G88"/>
+                        <constraint firstItem="zlV-49-fBL" firstAttribute="height" secondItem="if4-5U-Z0k" secondAttribute="height" multiplier="0.5" id="k5l-UO-NhE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="leading" secondItem="if4-5U-Z0k" secondAttribute="leading" id="Gky-8U-5ab"/>
+                <constraint firstAttribute="trailing" secondItem="if4-5U-Z0k" secondAttribute="trailing" id="bNh-ug-LU6"/>
+                <constraint firstItem="zlV-49-fBL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="m2U-H0-0y3"/>
+                <constraint firstItem="if4-5U-Z0k" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="okF-bX-rfv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="132" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="WhatsApp Image 2025-03-27 at 15.33.06" width="294.5" height="295.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
