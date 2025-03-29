@@ -19,7 +19,7 @@ class AppCoordinator {
     func start() {
         let getStartedViewControler = GetStartedViewController { [weak self] in
             guard let self = self else { return }
-            self.showOptionsScreen()
+            self.showUsernamelScreen()
         }
         navigationController.setViewControllers([getStartedViewControler], animated: false)
         navigationController.setNavigationBarHidden(true, animated: false)
@@ -39,4 +39,13 @@ class AppCoordinator {
         })
         navigationController.pushViewController(nextVC, animated: true)
     }
+
+    func showUsernamelScreen() {
+        let nextVC = UsernameControlerViewController(getStartedActions: {
+            print("")
+        })
+        navigationController.pushViewController(nextVC, animated: true)
+    }
+
+    
 }
