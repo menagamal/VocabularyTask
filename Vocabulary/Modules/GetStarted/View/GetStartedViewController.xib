@@ -23,7 +23,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if4-5U-Z0k">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhatsApp Image 2025-03-27 at 15.33.06" translatesAutoresizingMaskIntoConstraints="NO" id="zlV-49-fBL">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_get_started" translatesAutoresizingMaskIntoConstraints="NO" id="zlV-49-fBL">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zpf-7G-SV9">
@@ -82,7 +82,7 @@
         </view>
     </objects>
     <resources>
-        <image name="WhatsApp Image 2025-03-27 at 15.33.06" width="294.5" height="295.5"/>
+        <image name="bg_get_started" width="294.5" height="295.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
