@@ -19,7 +19,7 @@ class AppCoordinator {
     func start() {
         let getStartedViewControler = GetStartedViewController { [weak self] in
             guard let self = self else { return }
-            self.showNextScreen()
+            self.showOptionsScreen()
         }
         navigationController.setViewControllers([getStartedViewControler], animated: false)
         navigationController.setNavigationBarHidden(true, animated: false)
@@ -27,10 +27,16 @@ class AppCoordinator {
         window.makeKeyAndVisible()
     }
 
-    func showNextScreen() {
-        // Navigate to next screen (e.g., onboarding, home)
+    func showOptionsScreen() {
         let viewModel = OptionsViewModel(options: ["Male", "Female", "Other", "Prefer not to say"])
         let nextVC = OptionsViewController(viewModel: viewModel)
+        navigationController.pushViewController(nextVC, animated: true)
+    }
+
+    func showEducationalScreen() {
+        let nextVC = EducationViewController(getStartedActions: {
+            print("")
+        })
         navigationController.pushViewController(nextVC, animated: true)
     }
 }
