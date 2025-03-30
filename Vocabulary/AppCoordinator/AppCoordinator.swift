@@ -19,7 +19,7 @@ class AppCoordinator {
     func start() {
         let getStartedViewControler = GetStartedViewController { [weak self] in
             guard let self = self else { return }
-            self.showThemeScreeen()
+            self.showAccentScreeen()
         }
         navigationController.setViewControllers([getStartedViewControler], animated: false)
         navigationController.setNavigationBarHidden(true, animated: false)
@@ -50,6 +50,14 @@ class AppCoordinator {
     func showThemeScreeen() {
 
         let nextVC = ThemeControlerViewController(getStartedActions: {
+            print("")
+        })
+        navigationController.pushViewController(nextVC, animated: true)
+    }
+
+    func showAccentScreeen() {
+
+        let nextVC = AccentViewControler(getStartedActions: {
             print("")
         })
         navigationController.pushViewController(nextVC, animated: true)
