@@ -7,10 +7,10 @@
 
 import UIKit
 
-class InputTextTield: UIView {
+class InputTextTield: UIView, UITextFieldDelegate {
 
     // MARK: - Public Text Field Access
-    let textField: UITextField = {
+    lazy var textField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Your name"
         textField.font = UIFont.systemFont(ofSize: 16)
@@ -18,6 +18,7 @@ class InputTextTield: UIView {
         textField.layer.cornerRadius = 12
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.setLeftPaddingPoints(12)
+        textField.delegate = self
         return textField
     }()
 
@@ -43,6 +44,12 @@ class InputTextTield: UIView {
             textField.trailingAnchor.constraint(equalTo: trailingAnchor),
             textField.heightAnchor.constraint(equalToConstant: 48)
         ])
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Dismiss the keyboard
+        textField.resignFirstResponder()
+        return true
     }
 }
 extension UITextField {

@@ -19,7 +19,7 @@ class AppCoordinator {
     func start() {
         let getStartedViewControler = GetStartedViewController { [weak self] in
             guard let self = self else { return }
-            self.showUsernamelScreen()
+            self.showThemeScreeen()
         }
         navigationController.setViewControllers([getStartedViewControler], animated: false)
         navigationController.setNavigationBarHidden(true, animated: false)
@@ -47,5 +47,12 @@ class AppCoordinator {
         navigationController.pushViewController(nextVC, animated: true)
     }
 
-    
+    func showThemeScreeen() {
+
+        let nextVC = ThemeControlerViewController(getStartedActions: {
+            print("")
+        })
+        navigationController.pushViewController(nextVC, animated: true)
+    }
+
 }
