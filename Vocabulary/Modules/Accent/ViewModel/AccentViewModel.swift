@@ -1,19 +1,14 @@
 //
-//  OptionsViewModel.swift
+//  AccentViewModel.swift
 //  Vocabulary
 //
-//  Created by Mena Gamal on 28/03/2025.
+//  Created by Mena Gamal on 01/04/2025.
 //
 
 import Foundation
 
-class OptionsViewModel {
 
-    var selectedTitle: String?
-
-    var options: [String] {
-        dataSource.options
-    }
+class AccentViewModel {
 
     var titleLabel: String {
         dataSource.titleName
@@ -23,6 +18,9 @@ class OptionsViewModel {
         dataSource.subtitle
     }
 
+    var buttonTitle: String {
+        dataSource.buttonTitle
+    }
 
     private let dataSource: PagesStates
     init(dataSource: PagesStates) {

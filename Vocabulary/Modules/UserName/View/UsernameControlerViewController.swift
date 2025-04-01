@@ -12,11 +12,12 @@ class UsernameControlerViewController: UIViewController {
     @IBOutlet weak var subtitileLabel: SecondaryLabel!
     @IBOutlet weak var titleLabel: PrimaryLabel!
     @IBOutlet weak var continueButton: PrimaryButton!
-
+    private let viewModel: UsernameControlerViewModel
     private var getStartedActions: VoidClosure?
 
-    init(getStartedActions: @escaping VoidClosure) {
+    init(viewModel: UsernameControlerViewModel, getStartedActions: @escaping VoidClosure) {
         self.getStartedActions = getStartedActions
+        self.viewModel = viewModel
         super.init(nibName: "UsernameControlerViewController", bundle: nil)
     }
 
@@ -38,8 +39,12 @@ class UsernameControlerViewController: UIViewController {
     }
 
     func configureLayout() {
-        titleLabel.text = "What do you want to be called?"
-        subtitileLabel.text = "Your name is uded to personalize your experience"
-        continueButton.configureTitle(title: "Continue")
+        titleLabel.text = viewModel.titleLabel
+        subtitileLabel.text = viewModel.subTitleLabel
+        continueButton.configureTitle(title: viewModel.buttonTitle)
+    }
+
+    @IBAction func nextPageTapped(_ sender: PrimaryButton) {
+        getStartedActions?()
     }
 }

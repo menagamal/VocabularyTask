@@ -15,11 +15,12 @@ class OptionsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private let viewModel: OptionsViewModel
+    private var getStartedActions: VoidClosure?
 
 
-
-    init(viewModel: OptionsViewModel) {
+    init(viewModel: OptionsViewModel, getStartedActions: @escaping VoidClosure) {
         self.viewModel = viewModel
+        self.getStartedActions = getStartedActions
         super.init(nibName: "OptionsViewController", bundle: nil)
     }
 
@@ -41,6 +42,7 @@ class OptionsViewController: UIViewController {
         tableView.delegate = self
         self.view.backgroundColor = UIColor(red: 245/255, green: 239/255, blue: 229/255, alpha: 1.0) // Approx background
     }
+    
 }
 
 
@@ -85,8 +87,8 @@ private extension OptionsViewController {
             return UITableViewCell()
         }
         cell.configure(
-            title: "How did you hear about Vocabulary?",
-            subTitle: "Select an option to continue"
+            title: viewModel.titleLabel,
+            subTitle: viewModel.subTitleLabel
         )
         return cell
     }
@@ -105,5 +107,9 @@ extension OptionsViewController: OptionTableViewCellDelegate {
     func didSelectOption(title: String) {
         viewModel.selectedTitle = title
         tableView.reloadData()
+        tableView.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.getStartedActions?()
+        }
     }
 }

@@ -9,12 +9,14 @@ import UIKit
 
 class EducationViewController: UIViewController {
 
+    @IBOutlet weak var educationImageView: UIImageView!
     @IBOutlet weak var continueButton: PrimaryButton!
     @IBOutlet weak var titleLabel: PrimaryLabel!
     private var getStartedActions: VoidClosure?
-
-    init(getStartedActions: @escaping VoidClosure) {
+    private let viewModel: EducationViewModel
+    init(viewModel: EducationViewModel, getStartedActions: @escaping VoidClosure) {
         self.getStartedActions = getStartedActions
+        self.viewModel = viewModel
         super.init(nibName: "EducationViewController", bundle: nil)
     }
 
@@ -28,7 +30,12 @@ class EducationViewController: UIViewController {
     }
 
     func configureLayout() {
-        titleLabel.text = "Tailor your words recommendations"
-        continueButton.configureTitle(title: "Continue")
+        educationImageView.image = UIImage(named: viewModel.imageName)
+        titleLabel.text = viewModel.titleLabel
+        continueButton.configureTitle(title: viewModel.buttonTitle)
+    }
+
+    @IBAction func nextPageTapped(_ sender: PrimaryButton) {
+        getStartedActions?()
     }
 }

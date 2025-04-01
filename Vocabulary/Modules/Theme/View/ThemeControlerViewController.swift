@@ -18,7 +18,7 @@ class ThemeControlerViewController: UIViewController, UICollectionViewDataSource
     let cardImages: [UIImage?] = [
         UIColor(red: 245/255, green: 239/255, blue: 229/255, alpha: 1.0).image(),    // plain background
         UIImage(named: "cozy_study"),
-        UIImage(named: "david"),
+        UIImage(named: "cozy_reading"),
         UIImage(named: "library"),
         UIImage(named: "david"),
         UIColor.black.image() 
@@ -45,8 +45,10 @@ class ThemeControlerViewController: UIViewController, UICollectionViewDataSource
     }()
 
 
-    init(getStartedActions: @escaping VoidClosure) {
+    private let viewModel: ThemeControlerViewModel
+    init(viewModel: ThemeControlerViewModel, getStartedActions: @escaping VoidClosure) {
         self.getStartedActions = getStartedActions
+        self.viewModel = viewModel
         super.init(nibName: "ThemeControlerViewController", bundle: nil)
     }
 
@@ -64,12 +66,15 @@ class ThemeControlerViewController: UIViewController, UICollectionViewDataSource
         contentStackView.addArrangedSubview(themeCollectionView)
         themeCollectionView.heightAnchor.constraint(equalToConstant: 440).isActive = true
 
-        titleLabel.text = "Which theme would you like to start with?"
-        subTitleLabel.text = "Choose from a larger selection of themes or create your own later"
-        continueButton.configureTitle(title: "Continue")
+        titleLabel.text = viewModel.titleLabel
+        subTitleLabel.text = viewModel.subTitleLabel
+        continueButton.configureTitle(title: viewModel.buttonTitle)
         themeCollectionView.reloadData()
     }
 
+    @IBAction func nextPageTapped(_ sender: PrimaryButton) {
+        getStartedActions?()
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cardImages.count

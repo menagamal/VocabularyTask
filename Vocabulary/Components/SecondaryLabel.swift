@@ -20,7 +20,7 @@ class SecondaryLabel: UILabel {
 
     private func setupStyle() {
         font = UIFont(name: "HelveticaNeue", size: 16)
-        textColor = .darkGray
+        textColor = .black
         numberOfLines = 0
         textAlignment = .center
         adjustsFontForContentSizeCategory = true

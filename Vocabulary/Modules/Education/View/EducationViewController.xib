@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EducationViewController" customModule="Vocabulary" customModuleProvider="target">
             <connections>
                 <outlet property="continueButton" destination="pgb-qD-aUd" id="zu7-zS-Aqv"/>
+                <outlet property="educationImageView" destination="ZG8-tb-6hI" id="DUN-ua-z0w"/>
                 <outlet property="titleLabel" destination="sQd-EA-Wr4" id="Uaf-hD-0p3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,19 +24,22 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="655"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K55-Gt-SLs">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="428.33333333333331"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="528.33333333333337"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQd-EA-Wr4" customClass="PrimaryLabel" customModule="Vocabulary" customModuleProvider="target">
-                                    <rect key="frame" x="32" y="376" width="329" height="20.333333333333314"/>
+                                    <rect key="frame" x="32" y="476" width="329" height="20.333333333333314"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screenshot 2025-03-29 at 1.37.14 PM" translatesAutoresizingMaskIntoConstraints="NO" id="ZG8-tb-6hI">
-                                    <rect key="frame" x="32" y="71" width="329" height="233"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screenshot 2025-03-29 at 1.37.14 PM" translatesAutoresizingMaskIntoConstraints="NO" id="ZG8-tb-6hI">
+                                    <rect key="frame" x="32" y="71" width="329" height="351"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="ZG8-tb-6hI" secondAttribute="height" multiplier="329:351" id="Iei-zs-FJP"/>
+                                    </constraints>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" red="0.90196078431372551" green="0.8901960784313725" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="ZG8-tb-6hI" firstAttribute="top" secondItem="K55-Gt-SLs" secondAttribute="top" constant="71" id="5ef-mA-2zq"/>
                                 <constraint firstAttribute="trailing" secondItem="ZG8-tb-6hI" secondAttribute="trailing" constant="32" id="DeR-Ye-oxn"/>
@@ -43,7 +47,7 @@
                                 <constraint firstItem="ZG8-tb-6hI" firstAttribute="leading" secondItem="K55-Gt-SLs" secondAttribute="leading" constant="32" id="NKf-2a-wfe"/>
                                 <constraint firstAttribute="bottom" secondItem="sQd-EA-Wr4" secondAttribute="bottom" constant="32" id="ft3-4G-cSp"/>
                                 <constraint firstAttribute="trailing" secondItem="sQd-EA-Wr4" secondAttribute="trailing" constant="32" id="jIN-eJ-Hy2"/>
-                                <constraint firstItem="sQd-EA-Wr4" firstAttribute="top" secondItem="ZG8-tb-6hI" secondAttribute="bottom" constant="72" id="s1x-xb-8mg"/>
+                                <constraint firstItem="sQd-EA-Wr4" firstAttribute="top" secondItem="ZG8-tb-6hI" secondAttribute="bottom" constant="54" id="mPA-bP-EKm"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -64,6 +68,9 @@
                     </constraints>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="nextPageTapped:" destination="-1" eventType="touchUpInside" id="3kA-3k-Zob"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

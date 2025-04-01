@@ -28,8 +28,11 @@ class AccentViewControler: UIViewController, AVAudioPlayerDelegate {
         VoiceOption(name: "Miriam", accent: "Australian", isSelected: false)
     ]
 
-    init(getStartedActions: @escaping VoidClosure) {
+    private let viewModel: AccentViewModel
+
+    init(viewModel: AccentViewModel, getStartedActions: @escaping VoidClosure) {
         self.getStartedActions = getStartedActions
+        self.viewModel = viewModel
         super.init(nibName: "AccentViewControler", bundle: nil)
     }
 
@@ -42,10 +45,14 @@ class AccentViewControler: UIViewController, AVAudioPlayerDelegate {
         configureLayout()
     }
 
+    @IBAction func nextPageTapped(_ sender: PrimaryButton) {
+        getStartedActions?()
+    }
+
     func configureLayout() {
-        titleLabel.text = "Which theme would you like to start with?"
-        subtitleLabel.text = "Choose from a larger selection of themes or create your own later"
-        continueButton.configureTitle(title: "Continue")
+        titleLabel.text = viewModel.titleLabel
+        subtitleLabel.text = viewModel.subTitleLabel
+        continueButton.configureTitle(title: viewModel.buttonTitle)
 
         tableview.dataSource = self
         tableview.delegate = self
