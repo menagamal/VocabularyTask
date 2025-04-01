@@ -72,3 +72,61 @@ This project is a technical test implementation of the [Vocabulary](https://apps
 - **Deployment target**: iOS 15+
 - Uses **UIKit**, no external dependencies
 
+
+## ✨ Personal Touch – Unique Feature Proposal
+
+To enhance user experience and demonstrate creativity, I propose the addition of a **Mood-Based Word Experience** as a unique, immersive feature.
+
+---
+
+### 🔮 Mood-Based Word Themes
+
+**Idea:**  
+Make vocabulary learning emotionally resonant by letting users select their current **mood**, and dynamically adjusting the word content and background visuals to match.
+
+---
+
+### 🎯 How It Works
+
+- At launch or via a swipe-up drawer, users can select how they feel:
+  - Calm, Curious, Ambitious, Reflective, Romantic, etc.
+- The app then:
+  - Displays a curated word matching that emotional tone
+  - Loads a **background video/image** that reflects the same feeling
+  - Optionally adjusts the **color theme** or typography
+
+---
+
+### 🚀 Example:
+
+| Mood       | Word Example   | Background Theme        |
+|------------|----------------|--------------------------|
+| Reflective | *Ephemeral*    | Misty mountain morning   |
+| Ambitious  | *Tenacity*     | Sunrise over a city      |
+| Calm       | *Serene*       | Gentle ocean waves       |
+| Romantic   | *Yearn*        | Soft candle-lit room     |
+
+---
+
+### ✅ Why It Matters
+
+- Adds **emotion-based context** to word learning — improving recall and retention
+- Turns a passive learning experience into an immersive, atmospheric one
+- Gives users a **reason to return daily** based on how they feel, not just to "study"
+
+---
+
+### 🛠 Possible Extensions
+
+- Store mood-based sessions in a timeline (like a language journal)
+- Recommend flashbacks based on how you felt previously
+- Add soft transitions and ambient soundscapes to deepen immersion
+
+---
+
+### 🚀 Why It's a Strong Personal Touch
+
+This feature goes beyond UI polish and directly enriches the **learning experience**, blending language, emotion, and ambiance in a unique way. It turns vocabulary study into a **daily ritual** that meets users where they are — emotionally and intellectually.
+
+
+
