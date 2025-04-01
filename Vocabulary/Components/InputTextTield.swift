@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+protocol InputTextTieldDelegate: AnyObject {
+    func textfieldDidChange(isEmpty: Bool)
+}
 class InputTextTield: UIView, UITextFieldDelegate {
 
     // MARK: - Public Text Field Access
@@ -18,9 +20,12 @@ class InputTextTield: UIView, UITextFieldDelegate {
         textField.layer.cornerRadius = 12
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.setLeftPaddingPoints(12)
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         textField.delegate = self
         return textField
     }()
+
+    weak var delegate: InputTextTieldDelegate?
 
     // MARK: - Init
     override init(frame: CGRect) {
@@ -51,6 +56,12 @@ class InputTextTield: UIView, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+
+    // MARK: - Handle Text Changes
+        @objc private func textFieldDidChange() {
+            let isEmpty = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true
+            delegate?.textfieldDidChange(isEmpty: isEmpty)
+        }
 }
 extension UITextField {
     func setLeftPaddingPoints(_ amount:CGFloat){

@@ -12,6 +12,7 @@
                 <outlet property="continueButton" destination="Z6W-Dc-8bx" id="8uE-Dm-fzL"/>
                 <outlet property="subtitileLabel" destination="k3m-cw-WMz" id="emf-d0-XXb"/>
                 <outlet property="titleLabel" destination="eCF-jP-vSr" id="NdE-8H-SEg"/>
+                <outlet property="usernameTextField" destination="sVr-ty-Emq" id="1ue-FM-XJv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

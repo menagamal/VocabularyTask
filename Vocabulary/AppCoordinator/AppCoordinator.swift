@@ -44,7 +44,9 @@ class AppCoordinator {
                 self.showThemeScreeen()
             case .accentPage:
                 self.showAccentScreeen()
-            case .home, .getStarted:
+            case .home:
+                showHomeScreen()
+            case  .getStarted:
                 break
             }
         }
@@ -53,6 +55,14 @@ class AppCoordinator {
 
 
 extension AppCoordinator {
+    func showHomeScreen() {
+        let viewController =  HomeViewController()
+        navigationController.setViewControllers([viewController], animated: false)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+
+    }
     func showOptionsScreen() {
         let viewModel = OptionsViewModel(dataSource: currentState)
         let nextVC = OptionsViewController(viewModel: viewModel, getStartedActions:  { [weak self] in

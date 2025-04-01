@@ -7,11 +7,13 @@
 
 import UIKit
 
-class UsernameControlerViewController: UIViewController {
+class UsernameControlerViewController: UIViewController, InputTextTieldDelegate {
 
+    @IBOutlet weak var usernameTextField: InputTextTield!
     @IBOutlet weak var subtitileLabel: SecondaryLabel!
     @IBOutlet weak var titleLabel: PrimaryLabel!
     @IBOutlet weak var continueButton: PrimaryButton!
+    
     private let viewModel: UsernameControlerViewModel
     private var getStartedActions: VoidClosure?
 
@@ -30,6 +32,8 @@ class UsernameControlerViewController: UIViewController {
         configureLayout()
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleKeyboard))
         view.addGestureRecognizer(tap)
+        self.continueButton.isEnabled = false
+        usernameTextField.delegate = self
     }
 
     //Calls this function when the tap is recognized.
@@ -46,5 +50,9 @@ class UsernameControlerViewController: UIViewController {
 
     @IBAction func nextPageTapped(_ sender: PrimaryButton) {
         getStartedActions?()
+    }
+
+    func textfieldDidChange(isEmpty: Bool) {
+        self.continueButton.isEnabled = !isEmpty
     }
 }
