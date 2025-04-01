@@ -7,22 +7,10 @@
 import UIKit
 import AVFoundation
 
-enum BackgroundType {
-    case video(name: String)
-    case image(name: String)
-    case color(UIColor)
-}
-
-struct WordEntry {
-    let word: String
-    let pronunciation: String
-    let definition: String
-    let example: String
-}
 class HomeViewController: UIViewController {
 
     // MARK: - Background Elements
-    private var backgroundType: BackgroundType = .video(name: "cozy_night")
+    private lazy var backgroundType: BackgroundType = viewModel.getUserSavedTheme()
 
     private let backgroundImageView = UIImageView()
     private let backgroundColorView = UIView()
@@ -38,14 +26,17 @@ class HomeViewController: UIViewController {
     private let definitionLabel = UILabel()
     private let exampleLabel = UILabel()
     private var audioPlayer = AVSpeechSynthesizer()
+    private let viewModel: HomeViewModel
 
-    private var words: [WordEntry] = [
-        WordEntry(word: "Lovelorn", pronunciation: "ˈlʌvˌlɔrn", definition: "(adj.) Feeling sad and lonely because of unrequited love", example: "She has been lovelorn ever since her crush started dating someone else."),
-        WordEntry(word: "Ethereal", pronunciation: "ɪˈθɪəriəl", definition: "(adj.) Extremely delicate and light in a way that seems too perfect for this world", example: "The sunrise created an ethereal glow over the lake."),
-        WordEntry(word: "Halcyon", pronunciation: "ˈhælsiən", definition: "(adj.) Denoting a period of time in the past that was idyllically happy and peaceful", example: "He often spoke of the halcyon days of his youth."),
-    ]
-    private var currentIndex = 0
-
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground(type: backgroundType)
@@ -53,6 +44,7 @@ class HomeViewController: UIViewController {
         setupLabels()
         setupGesture()
         loadWord()
+        viewModel.didLoadHomePage()
     }
 
     // MARK: - Background Handling
@@ -92,7 +84,7 @@ class HomeViewController: UIViewController {
             ])
 
         case .color(let color):
-            backgroundColorView.backgroundColor = color
+            backgroundColorView.backgroundColor = UIColor.colorFromHex(color)
             backgroundColorView.translatesAutoresizingMaskIntoConstraints = false
             view.insertSubview(backgroundColorView, at: 0)
             NSLayoutConstraint.activate([
@@ -172,7 +164,7 @@ class HomeViewController: UIViewController {
     }
 
     private func loadWord() {
-        let entry = words[currentIndex % words.count]
+        let entry = viewModel.words[viewModel.currentIndex % viewModel.words.count]
         wordLabel.text = entry.word
         phoneticLabel.text = entry.pronunciation
         definitionLabel.text = entry.definition
@@ -188,7 +180,7 @@ class HomeViewController: UIViewController {
             self.overlayView.alpha = 0
             self.overlayView.transform = CGAffineTransform(translationX: 0, y: -self.view.bounds.height)
         }, completion: { _ in
-            self.currentIndex += 1
+            self.viewModel.currentIndex += 1
             self.loadWord()
             self.overlayView.transform = CGAffineTransform(translationX: 0, y: self.view.bounds.height)
             UIView.animate(withDuration: 0.3) {
@@ -199,9 +191,37 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func playPronunciation() {
-        let entry = words[currentIndex % words.count]
+        let entry = viewModel.words[viewModel.currentIndex % viewModel.words.count]
         let utterance = AVSpeechUtterance(string: entry.word)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         audioPlayer.speak(utterance)
+    }
+}
+
+
+extension UIColor {
+
+    /// Create a UIColor from a hex string like "#F5EFE5" or "F5EFE5"
+    static func colorFromHex(_ hex: String) -> UIColor? {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
+        var rgb: UInt64 = 0
+        guard Scanner(string: hexSanitized).scanHexInt64(&rgb) else { return nil }
+
+        let r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
+        let g = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
+        let b = CGFloat(rgb & 0x0000FF) / 255.0
+        return UIColor(red: r, green: g, blue: b, alpha: 1.0)
+    }
+
+    /// Generate a UIImage from this color
+    func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        self.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image ?? UIImage()
     }
 }

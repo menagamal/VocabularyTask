@@ -19,11 +19,16 @@ class AppCoordinator {
     }
 
     func start() {
-        let getStartedViewControler = GetStartedViewController { [weak self] in
-            guard let self = self else { return }
-            self.loadNextState()
+        let viewController: UIViewController
+        if UserDefaults.standard.bool(forKey: "didLoadHome"){
+            viewController = HomeViewController(viewModel: HomeViewModel())
+        } else {
+            viewController = GetStartedViewController { [weak self] in
+                guard let self = self else { return }
+                self.loadNextState()
+            }
         }
-        navigationController.setViewControllers([getStartedViewControler], animated: false)
+        navigationController.setViewControllers([viewController], animated: false)
         navigationController.setNavigationBarHidden(true, animated: false)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
@@ -56,7 +61,7 @@ class AppCoordinator {
 
 extension AppCoordinator {
     func showHomeScreen() {
-        let viewController =  HomeViewController()
+        let viewController =  HomeViewController(viewModel: HomeViewModel())
         navigationController.setViewControllers([viewController], animated: false)
         navigationController.setNavigationBarHidden(true, animated: false)
         window.rootViewController = navigationController
